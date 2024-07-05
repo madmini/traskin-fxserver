@@ -24,10 +24,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Docker pull
         run: |
-          docker pull traskin/fxserver:${{ inputs.fxserver_version }}
+          docker pull dermini/fxserver2:${{ inputs.fxserver_version }}
       - name: Add tag to the image
         run: |
-          docker tag traskin/fxserver:${{ inputs.fxserver_version }} traskin/fxserver:${{ inputs.tag }}
+          docker tag dermini/fxserver2:${{ inputs.fxserver_version }} dermini/fxserver2:${{ inputs.tag }}
       - name: Push tagged image
         run: |
-          docker image push traskin/fxserver:${{ inputs.tag }}
+          docker image push dermini/fxserver2:${{ inputs.tag }}

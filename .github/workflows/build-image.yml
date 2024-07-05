@@ -13,7 +13,7 @@ jobs:
       - id: docker-image
         if: ${{ steps.latest-fivem-tag.outputs.tag != null }}
         run: |
-          echo exists=$(curl -s "https://hub.docker.com/v2/repositories/traskin/fxserver/tags/${{ steps.latest-fivem-tag.outputs.tag }}/" | jq '.last_updated != null') >> $GITHUB_OUTPUT
+          echo exists=$(curl -s "https://hub.docker.com/v2/repositories/dermini/fxserver2/tags/${{ steps.latest-fivem-tag.outputs.tag }}/" | jq '.last_updated != null') >> $GITHUB_OUTPUT
       - id: fxserver-artifact
         if: ${{ steps.docker-image.outputs.exists == 'false' }}
         run: |
@@ -32,5 +32,5 @@ jobs:
           build-args: |
             artifact=${{ steps.latest-fivem-tag.outputs.tag }}
           tags: |
-            traskin/fxserver:${{ steps.latest-fivem-tag.outputs.tag }}
-            traskin/fxserver:latest
+            dermini/fxserver2:${{ steps.latest-fivem-tag.outputs.tag }}
+            dermini/fxserver2:latest
